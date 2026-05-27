@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  color-scheme: dark;
+  --bg: #0b1520;
+  --surface: #111827;
+  --surface-2: #1f2937;
+  --surface-3: #111827;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+  --accent: #0b5267;
+  --accent-strong: #332adf;
+  --danger: #f87171;
+}
+
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  padding-top: 6rem;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+}
+
+button,
+input,
+textarea,
+a {
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-top: 8rem;
+  }
+}
+

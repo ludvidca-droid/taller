@@ -8,3 +8,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav.css',
 })
 export class Nav {}
+
+function filtrarProducto(){
+  
+}

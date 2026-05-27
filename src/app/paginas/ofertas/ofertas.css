@@ -1,0 +1,139 @@
+.ofertas-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ofertas-container h2 {
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.oferta-card {
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.oferta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.oferta-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+.oferta-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.oferta-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.oferta-card h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.descripcion {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.oferta-card:hover .descripcion {
+  max-height: 120px;
+  opacity: 1;
+  margin: 0 0 18px;
+}
+
+.precio-section {
+  margin: 12px 0 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.precio-original {
+  margin: 0;
+  color: #999;
+  text-decoration: line-through;
+  font-size: 0.95rem;
+}
+
+.precio-descuento {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.btn-add-cart {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #332adf, #0b5267);
+  color: white;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 0.3s;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin-top: auto;
+}
+
+.btn-add-cart:hover {
+  opacity: 0.9;
+}
+
+.btn-agregar {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-agregar:hover {
+    background: #229954;
+}

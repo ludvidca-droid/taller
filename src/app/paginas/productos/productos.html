@@ -1,38 +1,17 @@
-<h3><strong>OFERTAS</strong></h3>
-<div class="container" width="100%" height="100%">
-    <div>
-        <img src="assets/mouse-wireless-logitech-gaming-g502x-plus-black-910006161-2.jpg" alt="Mouse Logitech G502 Hero" width="100" height="100">
-        <div class="descripcion">
-            <p>Mouse Logitech G502 Hero</p>
-            <p>$99.99</p>
-        </div>
-    </div>
-    <div>
-        <img src="assets/70448-producto-62.jpg" alt="Auricular Netmak N25 Blanco Rgb" width="100" height="100">
-        <div class="descripcion">
-            <p>Auricular Netmak N25 Blanco Rgb</p>
-            <p>$79.99</p>
-        </div>
-    </div>
-    <div>
-        <img src="assets/41100-producto-31250007400-21.jpg" alt="Pad Mouse XL Genius G-Pad 800S 80cm x 30cm" width="100" height="100">
-        <div class="descripcion">
-            <p>Pad Mouse XL Genius G-Pad 800S 80cm x 30cm</p>
-            <p>$49.99</p>
-        </div>
-    </div>
-    <div>
-        <img src="assets/1000x1000-GAMER009.jpg" alt="Teclado Gamer Mecanico Gadnic ZT800 RGB TKL Switch Outemu Blue" width="100" height="100">
-        <div class="descripcion">
-            <p>Teclado Gamer Mecanico Gadnic ZT800 RGB TKL Switch Outemu Blue</p>
-            <p>$129.99</p>
-        </div>
-    </div>
-    <div>
-        <img src="assets/monitor-27-viewsonic-vx2716a-ips-fhd-120hz-oc-1ms-hdmi-dp-usbc-0.jpg" alt="MONITOR 24 VIEWSONIC" width="100" height="100">
-        <div class="descripcion">
-            <p>MONITOR 24" VIEWSONIC</p>
-            <p>$199.99</p>
-        </div>
-    </div>
+<div class="productos-container">
+  <div class="productos-grid">
+    @for (p of Productos; track p.id){
+      @if (p.disponibilidad){
+        <article class="producto-card">
+          <img src="{{p.imagenUrl}}" alt="{{p.nombre}}">
+          <div class="producto-card-body">
+            <h3>{{p.nombre}}</h3>
+            <p class="descripcion">{{p.descripcion}}</p>
+            <p class="precio">${{p.precio.toFixed(2)}}</p>
+            <a href="#" class="btn-add-cart">Comprar</a>
+          </div>
+        </article>
+      }
+    }
+  </div>
 </div>

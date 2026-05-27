@@ -1,4 +1,21 @@
-<p><strong>OFERTAS</strong></p>
-<div>
-    <img src="assets/imagenes/shopping.webp" alt="logitech g502 hero" width="100px" height="100px">
+<div class="ofertas-container">
+  <h2>OFERTAS</h2>
+  <div class="ofertas-grid">
+    @for (oferta of ofertas; track oferta.id){
+      @if (oferta.disponibilidad){
+        <article class="oferta-card">
+          <div class="oferta-badge">{{ oferta.descuento }}% OFF</div>
+          <img src="{{oferta.imagenUrl}}" alt="{{oferta.nombre}}" class="oferta-img">
+          <div class="oferta-card-body">
+            <h3>{{oferta.nombre}}</h3>
+            <p class="descripcion">{{oferta.descripcion}}</p>
+            <div class="precio-section">
+              <p class="precio-original">${{oferta.precio.toFixed(2)}}</p>
+            </div>
+            <a href="#" class="btn-add-cart">Comprar</a>
+          </div>
+        </article>
+      }
+    }
+  </div>
 </div>

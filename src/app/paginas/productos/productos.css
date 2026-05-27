@@ -1,9 +1,87 @@
-.container{
-    display: flex;
-    gap: 5rem;
+.productos-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.descripcion{
-    display: flex;
-    flex-direction: column;
-    width: 100px;
+
+.productos-container h1 {
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.producto-card {
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.producto-card-body {
+  padding: 20px;
+}
+
+.producto-card h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.descripcion {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.producto-card:hover .descripcion {
+  max-height: 120px;
+  opacity: 1;
+  margin: 0 0 18px;
+}
+
+.producto-card .precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #332adf;
+  margin-bottom: 20px;
+}
+
+.btn-add-cart {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #332adf, #0b5267);
+  color: white;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.btn-add-cart:hover {
+  opacity: 0.9;
 }

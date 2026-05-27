@@ -1,9 +1,11 @@
 <nav class="app-nav">
-  <div class="brand">Mi App</div>
-  <input class="search-input" type="text" placeholder="🔍Buscar...">
+  <div class="brand"><a routerLink="Inicio">HardTech</a></div>
+  <input class="search-input" type="text" placeholder="🔍Buscar..." oninput="filtrarProducto()">
   <ul class="nav-links">
-    <li><a routerLink="Productos">Producto</a></li>
+    <li><a routerLink="Productos">Productos</a></li>
     <li><a routerLink="Ofertas">Ofertas</a></li>
     <li><a routerLink="Contacto">Contacto</a></li>
+    <li><a routerLink="carrito">🛒</a></li>
+    <li><a routerLink="inicio-sesion">👤</a></li>
   </ul>
 </nav>

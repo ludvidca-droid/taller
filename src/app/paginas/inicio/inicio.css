@@ -1,0 +1,108 @@
+.inicio-container {
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, #332adf, #0b5267);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background: var(--surface);
+  color: var(--accent-strong);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: var(--surface-2);
+}
+
+.categorias, .ofertas {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.categorias h2, .ofertas h2 {
+  color: var(--text);
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.categorias-grid, .ofertas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoria-card, .oferta-card {
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.categoria-card:hover, .oferta-card:hover {
+  transform: translateY(-5px);
+}
+
+.categoria-card img, .oferta-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.categoria-card h3, .oferta-card h4 {
+  padding: 20px;
+  margin: 0;
+  color: var(--text);
+}
+
+.oferta-card .precio-original {
+  text-decoration: line-through;
+  color: #999;
+  margin: 0 20px;
+}
+
+.oferta-card .precio-oferta {
+  color: #ff4757;
+  font-weight: bold;
+  margin: 0 20px 20px;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #332adf, #0b5267);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+  transition: opacity 0.3s;
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.iconInicio{
+}
