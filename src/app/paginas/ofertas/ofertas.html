@@ -12,7 +12,7 @@
             <div class="precio-section">
               <p class="precio-original">${{oferta.precio.toFixed(2)}}</p>
             </div>
-            <a href="#" class="btn-add-cart">Comprar</a>
+            <button type="button" class="btn-add-cart btn-comprar" (click)="agregarAlCarrito(oferta)">Comprar</button>
           </div>
         </article>
       }

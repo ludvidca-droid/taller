@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
+import { CarritoService } from '../../servicios/carrito-service';
 
 @Component({
   selector: 'app-ofertas',
@@ -8,6 +9,8 @@ import { Producto } from '../../models/producto';
   styleUrl: './ofertas.css',
 })
 export class Ofertas {
+  constructor(private carritoService: CarritoService) {}
+
   ofertas: Producto[]=[
     {
       id: 1,
@@ -67,5 +70,15 @@ export class Ofertas {
 
   calcularPrecioDescuento(precio: number, descuento: number): number {
     return precio * (1 - descuento / 100);
+  }
+
+  agregarAlCarrito(oferta: Producto) {
+    const ofertaConDescuento: Producto = {
+      ...oferta,
+      precio: this.calcularPrecioDescuento(oferta.precio, oferta.descuento ?? 0),
+      cantidad: 1,
+    };
+
+    this.carritoService.agregarAlCarrito(ofertaConDescuento);
   }
 }
