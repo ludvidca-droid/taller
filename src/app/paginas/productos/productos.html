@@ -3,6 +3,14 @@
     @for (p of Productos; track p.id){
       @if (p.disponibilidad){
         <article class="producto-card">
+          <button
+            type="button"
+            class="star-btn"
+            [class.active]="isFavorito(p)"
+            (click)="toggleFavorito(p)"
+          >
+            {{ isFavorito(p) ? '★' : '☆' }}
+          </button>
           <img src="{{p.imagenUrl}}" alt="{{p.nombre}}">
           <div class="producto-card-body">
             <h3>{{p.nombre}}</h3>

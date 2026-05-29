@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { CarritoService } from '../../servicios/carrito-service';
+import { Favoritos } from '../../servicios/favoritosService';
 
 @Component({
   selector: 'app-ofertas',
@@ -9,7 +10,10 @@ import { CarritoService } from '../../servicios/carrito-service';
   styleUrl: './ofertas.css',
 })
 export class Ofertas {
-  constructor(private carritoService: CarritoService) {}
+  constructor(
+    private carritoService: CarritoService,
+    private favoritosService: Favoritos
+  ) {}
 
   ofertas: Producto[]=[
     {
@@ -80,5 +84,17 @@ export class Ofertas {
     };
 
     this.carritoService.agregarAlCarrito(ofertaConDescuento);
+  }
+
+  isFavorito(oferta: Producto): boolean {
+    return this.favoritosService.isFavorito(oferta, 'oferta');
+  }
+
+  toggleFavorito(oferta: Producto): void {
+    if (this.isFavorito(oferta)) {
+      this.favoritosService.eliminarFavorito(oferta.id, 'oferta');
+    } else {
+      this.favoritosService.agregarFavorito(oferta, 'oferta');
+    }
   }
 }

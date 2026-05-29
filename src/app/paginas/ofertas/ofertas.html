@@ -4,6 +4,15 @@
     @for (oferta of ofertas; track oferta.id){
       @if (oferta.disponibilidad){
         <article class="oferta-card">
+          <button
+            type="button"
+            class="star-btn"
+            [class.active]="isFavorito(oferta)"
+            (click)="toggleFavorito(oferta)"
+            aria-label="Agregar a favoritos"
+          >
+            {{ isFavorito(oferta) ? '★' : '☆' }}
+          </button>
           <div class="oferta-badge">{{ oferta.descuento }}% OFF</div>
           <img src="{{oferta.imagenUrl}}" alt="{{oferta.nombre}}" class="oferta-img">
           <div class="oferta-card-body">

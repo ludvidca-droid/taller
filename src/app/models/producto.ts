@@ -6,5 +6,6 @@ export interface Producto {
     imagenUrl: string;
     disponibilidad: boolean;
     descuento?: number;
+    tipo?: 'producto' | 'oferta';
     cantidad?: number;
 }

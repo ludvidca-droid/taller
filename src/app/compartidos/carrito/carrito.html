@@ -1,17 +1,17 @@
 <div class="carrito-container">
   <h2>Tu Carrito de Compras</h2>
-  @for (p of carrito; track p.id) {
+  @for (p of carrito; track p.id + '-' + (p.tipo ?? 'producto')) {
     <div class="carrito-item">
       <img src="{{p.imagenUrl}}" alt="{{p.nombre}}">
       <div class="item-details">
-        <h3>{{p.nombre}}</h3>
+        <h3>{{p.nombre}} <span class="cart-badge">{{ p.tipo ?? 'producto' }}</span></h3>
         <p>Precio: ${{p.precio.toFixed(2)}}</p>
         <div class="quantity-controls">
-          <button class="btn-quantity" (click)="disminuirCantidad(p.id)">-</button>
+          <button class="btn-quantity" (click)="disminuirCantidad(p.id, p.tipo ?? 'producto')">-</button>
           <span>{{p.cantidad ?? 1}}</span>
-          <button class="btn-quantity" (click)="incrementarCantidad(p.id)">+</button>
+          <button class="btn-quantity" (click)="incrementarCantidad(p.id, p.tipo ?? 'producto')">+</button>
         </div>
-        <button (click)="eliminarDelCarrito(p.id)" class="btn-remove">Eliminar</button>
+        <button (click)="eliminarDelCarrito(p.id, p.tipo ?? 'producto')" class="btn-remove">Eliminar</button>
       </div>
     </div>
   }

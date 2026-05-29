@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { Carrito } from '../../compartidos/carrito/carrito';
 import { CarritoService } from '../../servicios/carrito-service';
+import { Favoritos } from '../../servicios/favoritosService';
 
 @Component({
   selector: 'app-productos',
@@ -11,7 +12,11 @@ import { CarritoService } from '../../servicios/carrito-service';
 })
 
 export class Productos {
-  constructor(private carrito: CarritoService) {}
+  constructor(
+    private carrito: CarritoService,
+    private favoritosService: Favoritos
+  ) {}
+
   Productos: Producto[] = [
     {
       id: 1,
@@ -98,5 +103,17 @@ export class Productos {
   agregarAlCarrito(p: Producto) { 
     this.carrito.agregarAlCarrito(p);
   }
-  
+
+  isFavorito(p: Producto): boolean {
+    return this.favoritosService.isFavorito(p, 'producto');
+  }
+
+  toggleFavorito(p: Producto): void {
+    if (this.isFavorito(p)) {
+      this.favoritosService.eliminarFavorito(p.id, 'producto');
+    } else {
+      this.favoritosService.agregarFavorito(p, 'producto');
+    }
+  }
 }
+

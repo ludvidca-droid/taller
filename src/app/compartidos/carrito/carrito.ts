@@ -17,8 +17,8 @@ export class Carrito implements OnInit {
     this.carrito = this.carritoService.obtenerCarrito();
   }
   
-  eliminarDelCarrito(productoId: number) {
-    this.carritoService.eliminarDelCarrito(productoId);
+  eliminarDelCarrito(productoId: number, tipo: 'producto' | 'oferta' = 'producto') {
+    this.carritoService.eliminarDelCarrito(productoId, tipo);
     this.carrito = this.carritoService.obtenerCarrito();
   }
 
@@ -29,13 +29,13 @@ export class Carrito implements OnInit {
     );
   }
 
-  incrementarCantidad(productoId: number) {
-    this.carritoService.cambiarCantidad(productoId, 1);
+  incrementarCantidad(productoId: number, tipo: 'producto' | 'oferta' = 'producto') {
+    this.carritoService.cambiarCantidad(productoId, 1, tipo);
     this.carrito = this.carritoService.obtenerCarrito();
   }
 
-  disminuirCantidad(productoId: number) {
-    this.carritoService.cambiarCantidad(productoId, -1);
+  disminuirCantidad(productoId: number, tipo: 'producto' | 'oferta' = 'producto') {
+    this.carritoService.cambiarCantidad(productoId, -1, tipo);
     this.carrito = this.carritoService.obtenerCarrito();
   }
 }

@@ -7,8 +7,19 @@ import { Producto } from '../models/producto';
 export class CarritoService {
   carrito: Producto[] = [];
   
-  agregarAlCarrito(p: Producto) {
-    const productoExistente = this.carrito.find(item => item.id === p.id);
+  private esMismoProducto(item: Producto, p: Producto): boolean {
+    const tipoItem = item.tipo ?? 'producto';
+    const tipoProducto = p.tipo ?? 'producto';
+    return item.id === p.id && tipoItem === tipoProducto;
+  }
+
+  agregarAlCarrito(p: Producto, tipo: 'producto' | 'oferta' = p.tipo ?? 'producto') {
+    const productoConTipo: Producto = {
+      ...p,
+      tipo,
+    };
+
+    const productoExistente = this.carrito.find(item => this.esMismoProducto(item, productoConTipo));
 
     if (productoExistente) {
       productoExistente.cantidad = (productoExistente.cantidad ?? 1) + 1;
@@ -16,13 +27,13 @@ export class CarritoService {
     }
 
     this.carrito.push({
-      ...p,
+      ...productoConTipo,
       cantidad: 1,
     });
   }
 
-  cambiarCantidad(productoId: number, delta: number) {
-    const producto = this.carrito.find(item => item.id === productoId);
+  cambiarCantidad(productoId: number, delta: number, tipo: 'producto' | 'oferta' = 'producto') {
+    const producto = this.carrito.find(item => item.id === productoId && (item.tipo ?? 'producto') === tipo);
     if (!producto) {
       return;
     }
@@ -34,7 +45,7 @@ export class CarritoService {
     return this.carrito;
   }
 
-  eliminarDelCarrito(productoId: number) {
-    this.carrito = this.carrito.filter(p => p.id !== productoId);
+  eliminarDelCarrito(productoId: number, tipo: 'producto' | 'oferta' = 'producto') {
+    this.carrito = this.carrito.filter(item => !(item.id === productoId && (item.tipo ?? 'producto') === tipo));
   }
 }
